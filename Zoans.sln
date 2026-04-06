@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11513.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoans", "Zoans.csproj", "{67880CA3-90A8-02CE-2E33-035F61683448}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C2AC2E11-524C-41B4-8F06-5348B044E7BB}"
+	ProjectSection(SolutionItems) = preProject
+		MongoDBService.cs = MongoDBService.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9681EEA-23B3-4822-B41C-86F5EEBA1BAE}"
+	ProjectSection(SolutionItems) = preProject
+		web.config = web.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67880CA3-90A8-02CE-2E33-035F61683448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67880CA3-90A8-02CE-2E33-035F61683448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67880CA3-90A8-02CE-2E33-035F61683448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67880CA3-90A8-02CE-2E33-035F61683448}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A260A1B-08F0-41B6-B89B-3E64CB992C7A}
+	EndGlobalSection
+EndGlobal

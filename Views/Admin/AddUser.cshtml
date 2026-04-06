@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Add User";
+}
+
+<h2>Add User</h2>
+
+<form method="post">
+    Username: <input type="text" name="username" /><br />
+    Password: <input type="password" name="password" /><br />
+    Role:
+    <select name="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select><br />
+    <br />
+    <input type="submit" value="Add User" />
+</form>
+
+<a href="/Admin">Go Back</a>

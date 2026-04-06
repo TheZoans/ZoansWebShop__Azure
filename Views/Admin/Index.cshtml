@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<div class="admin-wrap">
+
+    <div class="admin-header">
+        <h2 class="admin-title">Admin Panel</h2>
+        <div class="admin-actions">
+            <a href="/Admin/AddItem" class="admin-btn">+ Add Item</a>
+            <a href="/Admin/AddUser" class="admin-btn">+ Add User</a>
+        </div>
+    </div>
+
+    <div class="admin-section">
+        <h3 class="admin-section-title">Items</h3>
+
+        @if (ViewBag.Items != null)
+        {
+            <div class="admin-grid">
+                @foreach (var item in ViewBag.Items)
+                {
+                    <div class="admin-card">
+                        <div class="admin-card-info">
+                            <span class="admin-card-name">@item.Name</span>
+                            <span class="admin-card-meta">$@item.Price</span>
+                        </div>
+                        <form method="post" action="/Admin/RemoveItem">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p class="admin-empty">No items found.</p>
+        }
+    </div>
+
+    <div class="admin-section">
+        <h3 class="admin-section-title">Users</h3>
+
+        @if (ViewBag.Users != null)
+        {
+            <div class="admin-grid">
+                @foreach (var user in ViewBag.Users)
+                {
+                    <div class="admin-card">
+                        <div class="admin-card-info">
+                            <span class="admin-card-name">@user.Username</span>
+                            <span class="admin-card-meta">@user.Role</span>
+                        </div>
+                        <form method="post" action="/Admin/RemoveUser">
+                            <input type="hidden" name="id" value="@user.Id" />
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p class="admin-empty">No users found.</p>
+        }
+    </div>
+
+</div>

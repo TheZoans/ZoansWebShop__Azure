@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "My Profile";
+}
+
+<h2>My Profile</h2>
+
+<p>Username: @ViewBag.User.Username</p>
+<p>Average Rating Given: @ViewBag.AvgRating</p>
+
+<hr />
+
+<h3>My Reviews</h3>
+
+@if (ViewBag.Reviews.Count == 0)
+{
+    <p>No reviews yet.</p>
+}
+
+@for (int i = 0; i < ViewBag.Reviews.Count; i++)
+{
+    <div style="border:1px solid gray; padding:5px; margin:5px;">
+        <p>@ViewBag.Reviews[i].Content</p>
+    </div>
+}
+
+<a href="/">Go Home</a>

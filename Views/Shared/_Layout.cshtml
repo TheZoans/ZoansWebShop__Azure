@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Zoans</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <a class="brand" href="/">ZOANS</a>
+        </div>
+
+        <div class="nav-mid">
+            <a href="/">All</a>
+            <a href="/?category=Vinyls">Vinyls</a>
+            <a href="/?category=AntiqueFurniture">Antique Furniture</a>
+            <a href="/?category=GPSSportWatches">GPS Watches</a>
+            <a href="/?category=RunningShoes">Running Shoes</a>
+            <a href="/?category=CampingTents">Camping Tents</a>
+        </div>
+
+        <div class="nav-right">
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (User.IsInRole("admin"))
+                {
+                    <a href="/Admin" class="nav-auth-btn" style="background:#333; margin-right:8px;">Admin Panel</a>
+                }
+                <span class="uname">@User.Identity.Name</span>
+                <a href="/Account/Logout" class="nav-auth-btn">Logout</a>
+            }
+            else
+            {
+                <a href="/Account/Login" class="nav-auth-btn">Login</a>
+            }
+        </div>
+    </nav>
+
+    <div class="page-container">
+        @RenderBody()
+    </div>
+
+    <footer class="site-footer">
+        <span class="footer-brand">ZOANS</span>
+        <span class="footer-copy">© 2025 Zoans. All rights reserved.</span>
+    </footer>
+
+    <script src="~/js/site.js"></script>
+
+</body>
+</html>

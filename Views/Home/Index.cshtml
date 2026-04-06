@@ -1,0 +1,58 @@
+﻿@model List<Zoans.Models.Items>
+
+<div class="hero">
+    <img src="~/images/hero.jpg" class="hero-img" />
+    <div class="hero-overlay">
+        <p class="hero-sub">New &amp; Featured</p>
+        <h1 class="hero-title">FIND YOUR<br />NEXT THING.</h1>
+    </div>
+</div>
+
+<div class="shop-header">
+    <h2 class="section-title">Zoans Shop</h2>
+
+    <div class="categories">
+        <a href="/" class="cat-pill active">All</a>
+        <a href="/?category=Vinyls" class="cat-pill">Vinyls</a>
+        <a href="/?category=AntiqueFurniture" class="cat-pill">Antique Furniture</a>
+        <a href="/?category=GPSSportWatches" class="cat-pill">GPS Watches</a>
+        <a href="/?category=RunningShoes" class="cat-pill">Running Shoes</a>
+        <a href="/?category=CampingTents" class="cat-pill">Camping Tents</a>
+    </div>
+</div>
+
+<div class="products">
+    @foreach (var item in Model)
+    {
+        <div class="product-card">
+            <div class="prod-img-wrap">
+                <img src="@item.ImageURL" class="prod-img" />
+            </div>
+
+            <div class="prod-info">
+                <h3 class="prod-name">@item.Name</h3>
+
+                <p class="prod-desc">
+                    @{
+                        var words = item.Description?.Split(" ");
+                        if (words != null && words.Length > 12)
+                        {
+                            @($"{string.Join(" ", words.Take(12))}...")
+                            ;
+                        }
+                        else
+                        {
+                            @item.Description
+                            ;
+                        }
+                    }
+                </p>
+
+                <div class="prod-footer">
+                    <p class="prod-price">$@item.Price</p>
+                    <a href="/Item/Details/@item.Id" class="prod-btn">See Item</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

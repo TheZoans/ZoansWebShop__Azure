@@ -1,0 +1,70 @@
+﻿@model Zoans.Models.Items
+
+<div class="detail-wrap">
+
+    <div class="detail-top">
+        <div class="detail-img-box">
+            <img class="detail-img" src="@Model.ImageURL" alt="@Model.Name" />
+        </div>
+
+        <div class="detail-info">
+            <h2 class="detail-name">@Model.Name</h2>
+            <p class="detail-price">$@Model.Price</p>
+            <p class="detail-seller">Sold by: <b>@Model.Seller</b></p>
+            <div class="stars">★★★★★</div>
+            <p class="detail-desc">@Model.Description</p>
+
+            @if (User.IsInRole("user"))
+            {
+                <div class="rate-box">
+                    <h4>Rate this item</h4>
+                    <form method="post" action="/Item/Rate" class="rate-form">
+                        <input type="hidden" name="itemId" value="@Model.Id" />
+                        <select name="rating" class="rate-select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <input type="submit" value="Rate" class="small-btn" />
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+
+    <hr class="divider" />
+
+    @if (User.IsInRole("user"))
+    {
+        <div class="review-form-box">
+            <h3>Write a Review</h3>
+            <form method="post" action="/Item/Review">
+                <input type="hidden" name="itemId" value="@Model.Id" />
+                <textarea name="content" rows="4" placeholder="What do you think about this item?"></textarea>
+                <input type="submit" value="Submit Review" class="submit-btn" />
+            </form>
+        </div>
+    }
+
+    <div class="reviews-section">
+        <h3>Reviews</h3>
+        @if (Model.Reviews.Count == 0)
+        {
+            <p class="no-reviews">No reviews yet.</p>
+        }
+        else
+        {
+            foreach (var r in Model.Reviews)
+            {
+                <div class="review-box">
+                    <b class="review-user">@r.Username</b>
+                    <p class="review-content">@r.Content</p>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+

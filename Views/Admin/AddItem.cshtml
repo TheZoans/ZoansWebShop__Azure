@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Add Item";
+}
+
+<div class="admin-wrap">
+
+    <div class="admin-header">
+        <h2 class="admin-title">Add Item</h2>
+        <a href="/Admin" class="admin-btn">← Back</a>
+    </div>
+
+    <div class="form-card">
+        <form method="post">
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="e.g. Nike Air Max 90" />
+                </div>
+
+                <div class="form-group">
+                    <label>Seller</label>
+                    <input type="text" name="seller" placeholder="Seller name" />
+                </div>
+
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" name="price" step="0.01" placeholder="0.00" />
+                </div>
+
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="text" name="imageUrl" placeholder="https://..." />
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="category">
+                        <option value="Vinyls">Vinyls</option>
+                        <option value="AntiqueFurniture">Antique Furniture</option>
+                        <option value="GPSSportWatches">GPS Watches</option>
+                        <option value="RunningShoes">Running Shoes</option>
+                        <option value="CampingTents">Camping Tents</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Condition</label>
+                    <select name="condition">
+                        <option value="New">New</option>
+                        <option value="Used">Used</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Battery Life</label>
+                    <input type="text" name="batteryLife" placeholder="e.g. 20 hours" />
+                </div>
+
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" name="age" placeholder="Years old" />
+                </div>
+
+                <div class="form-group">
+                    <label>Size</label>
+                    <input type="text" name="size" placeholder="e.g. 42 / L / 30x32" />
+                </div>
+
+                <div class="form-group">
+                    <label>Material</label>
+                    <input type="text" name="material" placeholder="e.g. Leather, Cotton" />
+                </div>
+            </div>
+
+            <div class="form-group form-group--full">
+                <label>Description</label>
+                <textarea name="description" rows="3" placeholder="Describe the item..."></textarea>
+            </div>
+
+            <div class="form-submit">
+                <input type="submit" value="Add Item" class="submit-btn" />
+            </div>
+
+        </form>
+    </div>
+
+</div>
